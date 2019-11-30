@@ -1,0 +1,16 @@
+{
+  "name": "delimited-stream",
+  "version": "0.1.0",
+  "description": "A Transform stream emitting buffered data at each delimiter instance",
+  "main": "delimited-stream.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sovpro/delimited-stream.git"
+  },
+  "keywords": ["stream", "delimited", "delimiter", "transform"],
+  "author": "sovpro <its.so@outlook.com>",
+  "license": "MIT"
+}
