@@ -2,9 +2,11 @@
 
 A Node.js Transform stream emitting buffered data at each delimiter instance.
 
+Buffered data, delimiter excluded, is emitted each time the delimiter is encountered.
+
 ## Constructor
 
-The constructor requires a Buffer instance or string value representing the delimiter. Each time the delimiter is encountered buffered data up  the delimiter is sent in the stream data event.
+The constructor requires a Buffer instance or string value representing the delimiter.
 
 ```js
 const stream = new DelimitedStream (delimiter)
