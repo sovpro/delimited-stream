@@ -2,7 +2,7 @@
 
 A Node.js Transform stream emitting buffered data at each delimiter instance.
 
-Buffered data, delimiter excluded, is emitted each time the delimiter is encountered.
+By default buffered data is emitted without the delimiter each time the delimiter is encountered. Optionally, the delimiter can be included by passing a value that evaluates to true as the second parameter to the constructor.
 
 ## Constructor
 
@@ -10,6 +10,13 @@ The constructor requires a Buffer instance or string value representing the deli
 
 ```js
 const stream = new DelimitedStream (delimiter)
+```
+
+Optionally a second parameter may be specified, representing whether to include the delimiter in the data. By default, the delimiter is excluded.
+
+```js
+// include delimiter in data
+const stream = new DelimitedStream (delimiter, true)
 ```
 
 ## Example
