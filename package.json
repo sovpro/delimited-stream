@@ -1,6 +1,6 @@
 {
   "name": "delimited-stream",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "A Transform stream emitting buffered data at each delimiter instance",
   "main": "delimited-stream.js",
   "scripts": {
