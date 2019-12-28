@@ -1,5 +1,5 @@
 const assert             = require ('assert')
-const {DelimitedStream}  = require ('./delimited-stream')
+const {DelimitedStream}  = require ('./../')
 const {Readable} = require ('stream')
 
 const CHUNK_INTERVAL  = 175

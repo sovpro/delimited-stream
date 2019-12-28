@@ -2,6 +2,8 @@
 
 A Node.js Transform stream emitting buffered data at each delimiter instance.
 
+[![Build status for Node.js 8 10 12](https://github.com/sovpro/delimited-stream/workflows/Node.js%208%2010%2012%20/badge.svg?branch=master)](https://github.com/sovpro/delimited-stream/commits/master)
+
 By default buffered data is emitted without the delimiter each time the delimiter is encountered. Optionally, the delimiter can be included by passing a value that evaluates to true as the second parameter to the constructor.
 
 ## Constructor
