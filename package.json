@@ -1,6 +1,6 @@
 {
   "name": "@sovpro/delimited-stream",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Transform stream emitting buffered data at each delimiter instance",
   "main": "delimited-stream.js",
   "scripts": {
