@@ -1,6 +1,7 @@
 const assert             = require ('assert')
 const {DelimitedStream}  = require ('./../')
 const {Readable} = require ('stream')
+const splitRandomly      = require ('@sovpro/split-randomly')
 
 const CHUNK_INTERVAL  = 175
 const CHUNK_COUNT     = 6
@@ -54,32 +55,12 @@ socket_stream.pipe (delimited_stream_with_delim)
 
 queueChunk()
 
-function chunkifyStr (chunk_count, str) {
-  let list = [str]
-  while (chunk_count > 0) {
-    let i = list.reduce ((a, s, i) => s.length > a ? i : a, 0)
-    let str = list[i]
-    let pivot = Math.round (Math.random () * str.length)
-    if (pivot === 0) pivot = 1
-    else if (pivot === list.length) pivot = str.length - 1
-    let left_part = str.substring (0, pivot)
-    let right_part = str.substr (pivot)
-    for (let j = list.length; j > i; j -= 1) {
-      list[j] = list[j - 1]
-    }
-    list[i] = left_part
-    list[i + 1] = right_part
-    chunk_count -= 1
-  }
-  return list
-}
-
 function makeChunkList (list_size, chunk_count, test_str, delim) {
   return (
     new Array (list_size)
       .fill (null)
       .reduce ((list) => list.concat(
-        chunkifyStr (chunk_count, test_str).concat (
+        splitRandomly (test_str, chunk_count).concat (
           delim.toString ('utf8').split ('')
         )
       ), [])
