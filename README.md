@@ -4,8 +4,6 @@ A Node.js Transform stream emitting buffered data at each delimiter instance.
 
 [![Build status for Node.js 8.x and newer](https://github.com/sovpro/delimited-stream/workflows/Node.js%208.x%20and%20newer%20/badge.svg?branch=master)](https://github.com/sovpro/delimited-stream/commits/master)
 
-By default buffered data is emitted without the delimiter each time the delimiter is encountered. Optionally, the delimiter can be included by passing a value that evaluates to true as the second parameter to the constructor.
-
 ## Constructor
 
 The constructor requires a Buffer instance or string value representing the delimiter.
@@ -14,7 +12,7 @@ The constructor requires a Buffer instance or string value representing the deli
 const stream = new DelimitedStream (delimiter)
 ```
 
-Optionally a second parameter may be specified, representing whether to include the delimiter in the data. By default, the delimiter is excluded.
+Buffered data is emitted without the delimiter by default. To keep the delimiter, pass a [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) value as the second parameter.
 
 ```js
 // include delimiter in data
@@ -25,7 +23,6 @@ const stream = new DelimitedStream (delimiter, true)
 
 Instantiate a stream with a [newline](https://en.wikipedia.org/wiki/Newline) sequence as the delimiter.
 
-
 ```js
 const delimiter = Buffer.from ("\r\n")
 const stream = new DelimitedStream (delimiter)
@@ -34,4 +31,3 @@ stream.on ('data', (data) => {
   // do stuff
 })
 ```
-

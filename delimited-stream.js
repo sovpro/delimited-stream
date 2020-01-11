@@ -28,6 +28,14 @@ class DelimitedStream extends Transform {
     callback ()
   }
 
+  _final (callback) {
+    if (this [buffer_sym].length !== 0) {
+      this[updateQueue_sym] (this[delimiter_sym])
+      this[pushQueue_sym] ()
+    }
+    callback ()
+  }
+
   [updateQueue_sym] (chunk) {
     let temp_buffer = Buffer.concat ([this[buffer_sym], chunk])
     let delimiter_index
