@@ -1,10 +1,10 @@
 {
   "name": "@sovpro/delimited-stream",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "A Transform stream emitting buffered data at each delimiter instance",
-  "main": "delimited-stream.js",
+  "main": "dist/delimited-stream",
   "scripts": {
-    "test": "istanbul cover test"
+    "test": "istanbul cover dist/test"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,14 @@
   "license": "MIT",
   "devDependencies": {
     "@sovpro/split-randomly": "^1.0.1",
-    "istanbul": "^0.4.5"
+    "istanbul": "^0.4.5",
+    "@types/node": "^13.1.4"
+  },
+  "files": [
+    "dist/"
+  ],
+  "types": "dist/delimited-stream.d.ts",
+  "engines": {
+    "node": ">= 8"
   }
 }

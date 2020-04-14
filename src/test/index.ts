@@ -1,7 +1,8 @@
-const assert             = require ('assert')
-const {DelimitedStream}  = require ('./../')
-const {Readable} = require ('stream')
-const splitRandomly      = require ('@sovpro/split-randomly')
+/// <reference path="../../typings/vendor.d.ts" />
+import assert       from 'assert'
+import {DelimitedStream} from '../delimited-stream'
+import {Readable}        from 'stream'
+import splitRandomly    from '@sovpro/split-randomly'
 
 const CHUNK_COUNT     = 6
 const TEST_STR        = '[{"a":"A","b":"B","c":"C","d":[1,2,3,"thing"]},false]'
@@ -14,7 +15,7 @@ let omitting_delim_count = 0
 let test_count = 0
 
 testBasics ({last_delimiter: true})
-  .then (testBasics ({last_delimiter: false}))
+  .then (() => testBasics ({last_delimiter: false}))
 
 process.on ('exit', () => {
   let expected_data_events = test_count
@@ -28,7 +29,7 @@ process.on ('exit', () => {
   )
 })
 
-function testBasics ({last_delimiter}) {
+function testBasics ({last_delimiter}: {last_delimiter: boolean}): Promise<unknown> {
   test_count += 1
 
   const promise = new Promise ((fulfill, reject) => {
@@ -60,7 +61,7 @@ function testBasics ({last_delimiter}) {
   return promise
 }
 
-function getReadable (chunk_list) {
+function getReadable (chunk_list: string[]) {
   return new Readable({
     read (_num_bytes_) {
       if (chunk_list.length === 0)
