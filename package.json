@@ -4,7 +4,8 @@
   "description": "A Transform stream emitting buffered data at each delimiter instance",
   "main": "dist/delimited-stream",
   "scripts": {
-    "test": "istanbul cover dist/test"
+    "test": "istanbul cover dist/test",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -20,8 +21,9 @@
   "license": "MIT",
   "devDependencies": {
     "@sovpro/split-randomly": "^1.0.1",
+    "@types/node": "^13.1.4",
     "istanbul": "^0.4.5",
-    "@types/node": "^13.1.4"
+    "typescript": "^3.8.3"
   },
   "files": [
     "dist/"
